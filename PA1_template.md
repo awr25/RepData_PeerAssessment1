@@ -15,7 +15,7 @@ median of the total number of steps taken per day
     stepsday<-rowsum(data$steps,data$date,na.rm=T)
     hist(stepsday,xlab="Steps/Day",main="Histogram of Steps/Day")
 
-![](PA1_template_files/figure-markdown_strict/summarisedata1-1.png)
+![](figures/summarisedata1-1.png)
 
     mn<-mean(stepsday)
     med<-median(stepsday)
@@ -32,7 +32,7 @@ identify the time interval in the day where the step count is greatest.
     steptimeseries<-tapply(data$steps,data$interval,mean,na.rm=T)
     plot(intervals,steptimeseries,xlab="5 minute Time Interval",ylab="Step count in interval averaged per day",type="l")
 
-![](PA1_template_files/figure-markdown_strict/timeseries-1.png)
+![](figures/timeseries-1.png)
 
     modalinterval<-intervals[which(steptimeseries==max(steptimeseries),arr.ind=T)]
     print(paste("The time interval during which the most steps were made is: ",modalinterval,". In this interval, ",as.integer(max(steptimeseries))," steps were made.",sep=""))
@@ -70,7 +70,7 @@ count:
     newstepsday<-rowsum(newdata$steps,newdata$date)
     hist(newstepsday,xlab="Steps/Day",main="Histogram of New Steps/Day")
 
-![](PA1_template_files/figure-markdown_strict/filledinvaluessummary-1.png)
+![](figures/filledinvaluessummary-1.png)
 
     newmn<-mean(newstepsday)
     newmed<-median(newstepsday)
@@ -94,7 +94,7 @@ weekend activity as follows:
     plot(intervals,steptimeserieswkend,xlab="5 minute Time Interval",ylab="Step count in interval\naveraged per day",ylim=c(0,max(c(steptimeserieswkend,steptimeserieswk))),type="l",col="blue",main="Weekend")
     plot(intervals,steptimeserieswk,xlab="5 minute Time Interval",ylab="Step count in interval\naveraged per day",ylim=c(0,max(c(steptimeserieswkend,steptimeserieswk))),type="l",col="blue",main="Weekday")
 
-![](PA1_template_files/figure-markdown_strict/weekdayweekend-1.png)
+![](figures/weekdayweekend-1.png)
 
 We can see the increased number of steps on weekdays around the morning
 commute, and to a lesser extent, the evening commute. In contrast, the
